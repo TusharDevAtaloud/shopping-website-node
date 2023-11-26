@@ -6,11 +6,12 @@ const productRoutes = require('./product-service/routes')
 
 const app = express();
 const port = process.env.PORT || 3000;
+const mongoUrl = process.env.MONGO_URL || ""
 
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/login-api').then(
+mongoose.connect(mongoUrl).then(
     () => {
         console.log("Connected to mongo db")
     },
