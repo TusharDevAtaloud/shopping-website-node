@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 require('dotenv').config()
 
-const secretKey = process.env.JWT_SECRET || 10
+const secretKey = process.env.JWT_SECRET
 
 
 exports.register = async (req, res) => {
