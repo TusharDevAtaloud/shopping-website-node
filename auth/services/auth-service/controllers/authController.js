@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 require('dotenv').config()
 
-const secretKey = process.env.JWT_SECRET || 10
+const secretKey = process.env.JWT_SECRET || '10'
 
 
 exports.register = async (req, res) => {
@@ -48,6 +48,8 @@ exports.login = async (req, res) => {
         const token = jwt.sign({ userId: user._id }, secretKey, {
             expiresIn: '1h'
         })
+
+        console.log({token})
 
         res.status(200).json({ token: token })
     } catch (error) {
